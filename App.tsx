@@ -1,12 +1,28 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet,} from 'react-native';
+import { createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import { NavigationContainer } from '@react-navigation/native';
+import HomeScreen from './src/Screens/HomeScreen';
+import FavouritesScreen from './src/Screens/FavouritesScreen';
+
+
+const Tab = createBottomTabNavigator();
+
+function MyTabs(){
+  return (
+    <Tab.Navigator>
+      <Tab.Screen name='Home' component={HomeScreen}/>
+      <Tab.Screen name='Favourites' component={FavouritesScreen}/>
+    </Tab.Navigator>
+  );
+}
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <MyTabs/>
+    </NavigationContainer>
+    
   );
 }
 
