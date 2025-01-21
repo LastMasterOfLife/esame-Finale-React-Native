@@ -8,12 +8,16 @@ export default function DetailScreen() {
   const { id } = route.params || {};
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
-/*
+
   useEffect(() => {
-          getProductDetail(id).then(setProduct);
+          getProductDetail(id).then(r =>{
+            setProduct(r)
+            setLoading(false)
+          });
+          
       }, [id]);
 
-       */
+       /*
   useEffect(() => {
     const fetchProductDetails = async () => {
       try {
@@ -30,7 +34,7 @@ export default function DetailScreen() {
     fetchProductDetails();
   }, [id]);
   
-
+*/
   if (loading) {
     return <ActivityIndicator size="large" color="rgba(76, 168, 133, 0.88)" />;
   }
