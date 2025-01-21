@@ -37,7 +37,7 @@ export default function MyTabs() {
           let iconName;
           if (route.name === 'HOME') {
             iconName = 'home';
-          } else if (route.name === 'FAVOURITES') {
+          } else if (route.name === 'Detail') {
             iconName = 'favorite';
           }
           return <MaterialIcons name={iconName} size={55} color={color} />;
@@ -48,7 +48,7 @@ export default function MyTabs() {
       })}
     >
       <Tab.Screen name="HOME" component={HomeScreen} />
-      <Tab.Screen name="FAVOURITES" component={FavouritesScreen} />
+      <Tab.Screen name="Detail" component={FavouritesScreen} />
     </Tab.Navigator>
   );
 }
