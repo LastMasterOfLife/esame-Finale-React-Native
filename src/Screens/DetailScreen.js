@@ -29,11 +29,45 @@ export default function DetailScreen() {
   }
 
   return (
-    <View>
-        <Image source={{uri: product.image}} style={{width: '100%',height: 500,resizeMode: 'contain',}}/>
-        <Text>{product.title}</Text>
-        <Text>{product.description}</Text>
-        <Text>${product.price}</Text>
-    </View>
+    <ScrollView style={styles.container}>
+        <Image source={{uri: product.image}} style={styles.image}/>
+        <Text style={styles.texttitle}>{product.title}</Text>
+        <Text style={styles.textcomun}>{product.description}</Text>
+        <Text style={styles.textprice}>${product.price}</Text>
+    </ScrollView>
+        
   );
 }
+
+const styles = StyleSheet.create({
+    container:{
+        flex: 1,
+        padding: 10,
+        backgroundColor: '#fff',
+    },
+    image: {
+        width: '100%',
+        height: 550,
+        resizeMode: 'contain',
+        backgroundColor: 'rgba(0,0,0,0)',
+    },
+    texttitle: {
+        textAlign: 'center',
+        fontSize : 30,
+        color: 'rgba(39, 125, 151, 0.88)',
+        fontWeight: 'bold',
+        marginBottom: 20,
+        marginTop: 20
+    },
+    textcomun: {
+        fontSize: 25,
+        margin: 15
+    },
+    textprice: {
+        textAlign: 'center',
+        fontSize: 40,
+        color: 'rgba(23, 118, 81, 0.88)',
+        fontWeight: 'bold',
+        marginBottom: 250
+    }
+});
