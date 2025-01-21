@@ -1,13 +1,19 @@
 import {Text, Image, StyleSheet, ActivityIndicator, ScrollView, TouchableOpacity, View } from 'react-native';
 import { useRoute } from '@react-navigation/native';
 import { useState,useEffect } from 'react';
+import { getProductDetail } from '../Services/Api';
 
 export default function DetailScreen() {
   const route = useRoute();
   const { id } = route.params || {};
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
+/*
+  useEffect(() => {
+          getProductDetail(id).then(setProduct);
+      }, [id]);
 
+       */
   useEffect(() => {
     const fetchProductDetails = async () => {
       try {
@@ -23,6 +29,7 @@ export default function DetailScreen() {
 
     fetchProductDetails();
   }, [id]);
+  
 
   if (loading) {
     return <ActivityIndicator size="large" color="rgba(76, 168, 133, 0.88)" />;
