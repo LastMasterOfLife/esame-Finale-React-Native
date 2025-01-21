@@ -1,9 +1,11 @@
 import { StyleSheet } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { createStackNavigator} from '@react-navigation/stack'
 import { BlurView } from 'expo-blur';
 import HomeScreen from '../Screens/HomeScreen';
 import FavouritesScreen from '../Screens/FavouritesScreen';
-import MaterialIcons from 'react-native-vector-icons/MaterialIcons'; // Importa il set di icone desiderato
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import DetailScreen from '../Screens/DetailScreen';
 
 const Tab = createBottomTabNavigator();
 
@@ -19,6 +21,7 @@ export default function MyTabs() {
           alignItems:'center',
           marginTop:5
         },
+        headerShown: true,
         tabBarShowLabel: false,
         tabBarStyle: {
           position: 'absolute',
@@ -37,7 +40,7 @@ export default function MyTabs() {
           let iconName;
           if (route.name === 'HOME') {
             iconName = 'home';
-          } else if (route.name === 'Detail') {
+          } else if (route.name === 'Favourite') {
             iconName = 'favorite';
           }
           return <MaterialIcons name={iconName} size={55} color={color} />;
@@ -47,8 +50,19 @@ export default function MyTabs() {
     
       })}
     >
-      <Tab.Screen name="HOME" component={HomeScreen} />
-      <Tab.Screen name="Detail" component={FavouritesScreen} />
+      <Tab.Screen name="HOME" component={AppNavigator} />
+      <Tab.Screen name="Favourite" component={FavouritesScreen} />
     </Tab.Navigator>
+  );
+}
+
+const Stack = createStackNavigator();
+
+function AppNavigator() {
+  return (
+    <Stack.Navigator screenOptions={{ headerShown: false }}>
+      <Stack.Screen name="Home" component={HomeScreen} />
+      <Stack.Screen name="Detail" component={DetailScreen} />
+    </Stack.Navigator>
   );
 }
