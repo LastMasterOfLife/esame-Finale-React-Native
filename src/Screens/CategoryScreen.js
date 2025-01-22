@@ -50,6 +50,8 @@ export default function HomeScreen({ navigation }) {
   return (
     <SafeAreaView style={styles.safeArea}>
       
+      <Text style={styles.headerTitle}>Welcome!</Text>
+
       <TouchableOpacity
         style={styles.headerCard}
         onPress={() => navigation.navigate('Home',{category: 'all'})}
@@ -93,9 +95,10 @@ const styles = StyleSheet.create({
   },
   headerCard: {
     margin: 10,
-    height: 100,
+    height: 180,
     backgroundColor: '#f9f9f9',
     borderWidth: 1,
+    borderRadius: 25,
     borderColor: '#ccc',
     shadowColor: '#000',
     shadowOffset: {
@@ -109,7 +112,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   headerText: {
-    fontSize: 24,
+    fontSize: 44,
     fontWeight: 'bold',
     textAlign: 'center',
   },
@@ -133,8 +136,15 @@ const styles = StyleSheet.create({
     elevation: 3,
   },
   title: {
-    fontSize: 16,
+    fontSize: 26,
     fontWeight: 'bold',
     textAlign: 'center',
   },
+  headerTitle:{
+    fontSize: 50,
+    textAlign: 'center',
+    fontWeight: 'bold',
+    marginBottom: 100,
+    marginTop: 30
+  }
 });
