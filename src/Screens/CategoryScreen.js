@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, StyleSheet, ActivityIndicator, FlatList, TouchableOpacity, SafeAreaView } from 'react-native';
+import { View, Text, StyleSheet, ActivityIndicator, FlatList, TouchableOpacity, SafeAreaView, ImageBackground } from 'react-native';
 import { getCategories } from '../Services/Api';
 
 export default function HomeScreen({ navigation }) {
@@ -48,33 +48,41 @@ export default function HomeScreen({ navigation }) {
   );
 
   return (
-    <SafeAreaView style={styles.safeArea}>
-      
-      <Text style={styles.headerTitle}>Welcome!</Text>
+    <ImageBackground
+      source={require('../../assets/Background/sfondo.jpg')}
+      style={styles.background}
+      resizeMode="cover"
+    >
+      <SafeAreaView style={styles.safeArea}>
+        <Text style={styles.headerTitle}>Welcome!</Text>
 
-      <TouchableOpacity
-        style={styles.headerCard}
-        onPress={() => navigation.navigate('Home',{category: 'all'})}
-      >
-        <Text style={styles.headerText}>All products</Text>
-      </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.headerCard}
+          onPress={() => navigation.navigate('Home', { category: 'all' })}
+        >
+          <Text style={styles.headerText}>All products</Text>
+        </TouchableOpacity>
 
-      <FlatList
-        data={categories}
-        keyExtractor={(item, index) => index.toString()}
-        renderItem={renderItem}
-        numColumns={2}
-        columnWrapperStyle={styles.row}
-        contentContainerStyle={styles.listContent}
-      />
-    </SafeAreaView>
+        <FlatList
+          data={categories}
+          keyExtractor={(item, index) => index.toString()}
+          renderItem={renderItem}
+          numColumns={2}
+          columnWrapperStyle={styles.row}
+          contentContainerStyle={styles.listContent}
+        />
+      </SafeAreaView>
+    </ImageBackground>
   );
 }
 
 const styles = StyleSheet.create({
+  background: {
+    flex: 1,
+  },
   safeArea: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: 'rgba(255, 255, 255, 0.22)', // Sfondo semi-trasparente per migliorare la leggibilità
   },
   loaderContainer: {
     flex: 1,
@@ -96,7 +104,7 @@ const styles = StyleSheet.create({
   headerCard: {
     margin: 10,
     height: 180,
-    backgroundColor: '#f9f9f9',
+    backgroundColor: 'rgba(23, 118, 81, 0.88)',
     borderWidth: 1,
     borderRadius: 25,
     borderColor: '#ccc',
@@ -120,7 +128,7 @@ const styles = StyleSheet.create({
     flex: 1,
     margin: 5,
     height: 150,
-    backgroundColor: '#f9f9f9',
+    backgroundColor: 'rgba(164, 159, 98, 0.88)',
     borderRadius: 10,
     justifyContent: 'center',
     alignItems: 'center',
@@ -140,11 +148,11 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     textAlign: 'center',
   },
-  headerTitle:{
+  headerTitle: {
     fontSize: 50,
     textAlign: 'center',
     fontWeight: 'bold',
     marginBottom: 100,
-    marginTop: 30
-  }
+    marginTop: 30,
+  },
 });
