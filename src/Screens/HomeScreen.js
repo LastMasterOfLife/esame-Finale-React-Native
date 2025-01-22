@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { FlatList, View, StyleSheet ,ActivityIndicator} from 'react-native';
+import { FlatList, View, StyleSheet ,ActivityIndicator,Alert} from 'react-native';
 import Card from '../Component/cardComponent';
 import { getProducts } from '../Services/Api';
+import { saveFavorite } from '../Services/storage';
 
 export default function HomeScreen({ navigation }) {
   const [products, setProducts] = useState([]);
@@ -28,6 +29,8 @@ export default function HomeScreen({ navigation }) {
     );
   }
 
+  
+
   return (
     <View style={styles.container}>
         {products.length > 0 ? (
@@ -53,6 +56,8 @@ export default function HomeScreen({ navigation }) {
     </View>
   );
 }
+
+
 
 const styles = StyleSheet.create({
   container: {
