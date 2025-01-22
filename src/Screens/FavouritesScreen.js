@@ -56,11 +56,20 @@ const styles = StyleSheet.create({
   card: {
     height: 300,
     padding: 10,
-    marginBottom: 10,
+    marginBottom: 30,
     backgroundColor: '#f9f9f9',
     borderRadius: 15,
     borderWidth: 3,
     borderColor: '#233727',
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 6,
+    },
+    shadowOpacity: 0.37,
+    shadowRadius: 7.49,
+
+    elevation: 12,
   },
   image: {
     width: '100%',

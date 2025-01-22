@@ -6,6 +6,7 @@ import HomeScreen from '../Screens/HomeScreen';
 import FavouritesScreen from '../Screens/FavouritesScreen';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import DetailScreen from '../Screens/DetailScreen';
+import CategoryScreen from '../Screens/CategoryScreen'
 
 const Tab = createBottomTabNavigator();
 
@@ -43,7 +44,7 @@ export default function MyTabs() {
           } else if (route.name === 'Favourite') {
             iconName = 'favorite';
           }
-          return <MaterialIcons name={iconName} size={55} color={color} />;
+          return <MaterialIcons name={iconName} size={35} color={color} />;
         },
         tabBarActiveTintColor: 'rgb(2, 80, 50)',
         tabBarInactiveTintColor: 'rgba(255, 255, 255, 0.77)',
@@ -61,6 +62,7 @@ const Stack = createStackNavigator();
 function AppNavigator() {
   return (
     <Stack.Navigator screenOptions={{ headerShown: false }}>
+      <Stack.Screen name='Category' component={CategoryScreen}/>
       <Stack.Screen name="Home" component={HomeScreen} />
       <Stack.Screen name="Detail" component={DetailScreen} />
     </Stack.Navigator>

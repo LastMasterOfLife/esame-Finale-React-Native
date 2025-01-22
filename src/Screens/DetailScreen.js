@@ -2,7 +2,7 @@ import { Text, Image, StyleSheet, ActivityIndicator, ScrollView, TouchableOpacit
 import { useRoute } from '@react-navigation/native';
 import { useState, useEffect } from 'react';
 import { getProductDetail } from '../Services/Api';
-import { Ionicons } from '@expo/vector-icons'; // Assicurati di aver installato @expo/vector-icons
+import { Ionicons } from '@expo/vector-icons';
 
 export default function DetailScreen() {
   const route = useRoute();
