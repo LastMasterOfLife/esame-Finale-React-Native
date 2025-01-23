@@ -26,6 +26,9 @@ export default function FavoritesScreen() {
       
       <Text style={styles.title} numberOfLines={1} ellipsizeMode="tail">{item.title}</Text>
       <Text style={styles.price}>${item.price.toFixed(2)}</Text>
+      <View style={styles.ratingContainer}>
+        <Text style={styles.ratingText}>⭐ {item.rating.rate} ({item.rating.count})</Text>
+      </View>
     </View>
   );
 
@@ -92,4 +95,17 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     marginTop: 20,
   },
+  ratingContainer: {
+    position: 'absolute',
+    zIndex: 10,
+    bottom: 15,
+    right: 10,
+    backgroundColor: 'rgba(240, 237, 237, 0.75)',
+    borderRadius: 5
+  },
+  ratingText: {
+    fontSize: 15,
+    fontWeight: 'bold',
+    padding: 5
+  }
 });

@@ -39,14 +39,17 @@ export default function Card({ product, onPress }) {
 
   return (
     <TouchableOpacity style={styles.card} onPress={onPress}>
+      
+      <View style={styles.ratingContainer}>
+        <Text style={styles.ratingText}>⭐ {product.rating.rate} ({product.rating.count})</Text>
+      </View>
+
       <TouchableOpacity style={styles.iconContainer} onPress={handleFavoriteToggle}>
-        <View>
-          <MaterialIcons
-            name={isFavorite ? 'favorite' : 'favorite-outline'}
-            size={35}
-            color={isFavorite ? 'red' : 'black'}
-          />
-        </View>
+        <MaterialIcons
+          name={isFavorite ? 'favorite' : 'favorite-outline'}
+          size={28}
+          color={isFavorite ? 'red' : 'black'}
+        />
       </TouchableOpacity>
 
       <Image source={{ uri: product.image }} style={styles.image} />
@@ -73,6 +76,7 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.8,
     shadowRadius: 10,
     elevation: 15,
+    backgroundColor: 'rgb(255, 255, 255)'
   },
   iconContainer: {
     position: 'absolute',
@@ -106,4 +110,17 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     textAlign: 'center',
   },
+  ratingContainer: {
+    position: 'absolute',
+    zIndex: 10,
+    top: 15,
+    left: 10,
+    backgroundColor: 'rgba(240, 237, 237, 0.75)',
+    borderRadius: 5
+  },
+  ratingText: {
+    fontSize: 15,
+    fontWeight: 'bold',
+    padding: 5
+  }
 });

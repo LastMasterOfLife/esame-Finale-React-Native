@@ -62,6 +62,7 @@ export default function HomeScreen({ route, navigation }) {
           contentContainerStyle={styles.carouselContainer}
           bounces={true}
           decelerationRate="fast"
+          pagingEnabled={true}
         />
       ) : (
         <Text style={styles.noProductsText}>No products available for this category</Text>
@@ -73,7 +74,7 @@ export default function HomeScreen({ route, navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: 'rgb(255, 255, 255)',
     justifyContent: 'center',
   },
   carouselContainer: {

@@ -79,6 +79,8 @@ export default function HomeScreen({ navigation }) {
 const styles = StyleSheet.create({
   background: {
     flex: 1,
+    height: '100%',
+    width: '100%'
   },
   safeArea: {
     flex: 1,
