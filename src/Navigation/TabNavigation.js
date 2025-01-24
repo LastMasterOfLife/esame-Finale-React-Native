@@ -59,7 +59,7 @@ export default function MyTabs() {
 
 const Stack = createStackNavigator();
 
-function AppNavigator() {
+  function AppNavigator() {
   return (
     <Stack.Navigator screenOptions={{ headerShown: false }}>
       <Stack.Screen name='Category' component={CategoryScreen}/>

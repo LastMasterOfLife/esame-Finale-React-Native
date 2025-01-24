@@ -49,7 +49,7 @@ export default function HomeScreen({ navigation }) {
 
   return (
     <ImageBackground
-      source={require('../../assets/Background/sfondo.jpg')}
+      source={require('../../assets/Background/sfondo_alternativo.jpg')}
       style={styles.background}
       resizeMode="cover"
     >
