@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { FlatList, View, StyleSheet, ActivityIndicator, Text, Alert } from 'react-native';
 import Card from '../Component/cardComponent';
 import { getProducts } from '../Services/Api';
+import { styles } from '../Styles/HomeStyle';
 
 export default function HomeScreen({ route, navigation }) {
   const { category } = route.params;
@@ -71,24 +72,3 @@ export default function HomeScreen({ route, navigation }) {
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: 'rgb(255, 255, 255)',
-    justifyContent: 'center',
-  },
-  carouselContainer: {
-    paddingHorizontal: 10,
-    alignItems: 'center',
-  },
-  errorText: {
-    color: 'red',
-    fontSize: 18,
-    textAlign: 'center',
-  },
-  noProductsText: {
-    fontSize: 16,
-    fontStyle: 'italic',
-    textAlign: 'center',
-  },
-});
